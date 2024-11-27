@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Enumerators</title>
+    <link rel="stylesheet" href="admin_styles.css">
+</head>
+<body>
+    <header>
+        <h1>Manage Enumerators</h1>
+    </header>
+    <main>
+        <!-- Add Enumerator Form -->
+        <section>
+            <h2>Add New Enumerator</h2>
+            <form id="addEnumeratorForm" action="addEnumerator.php" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="location">Assigned Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <button type="submit">Add Enumerator</button>
+            </form>
+        </section>
+
+        <!-- Existing Enumerators List -->
+        <section>
+            <h2>Existing Enumerators</h2>
+            <table>
+                <tr>
+                    <th>Username</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+
+            <tr>
+                <td><?= htmlspecialchars($row['username']) ?></td>
+                <td><?= htmlspecialchars($row['location']) ?></td>
+                <td><?= htmlspecialchars($row['status']) ?></td>
+                <td>
+                    <a href="editEnumerator.php?id=<?= $row['id'] ?>">Edit</a> | 
+                    <a href="deactivateEnumerator.php?id=<?= $row['id'] ?>">Deactivate</a>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+    </table>
+<?php
+else:
+    echo "<p>No enumerators found.</p>";
+endif;
+
+// Close the database connection
+$conn->close();
+?>
+
+               
+            </table>
+        </section>
+    </main>
+</body>
+</html>

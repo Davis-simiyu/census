@@ -1,0 +1,161 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       .navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #003366;
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #ffcc00;
+}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        /* Main Section Styling */
+        main {
+            padding: 20px;
+        }
+
+        /* Dashboard Options */
+        .dashboard-options {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-options h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Dashboard Menu Styling */
+        .dashboard-options ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .dashboard-options ul li {
+            margin: 10px 0;
+        }
+
+        .dashboard-options ul li a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #333;
+            background-color: #f1f1f1;
+            padding: 12px 20px;
+            border-radius: 4px;
+            display: block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Hover Effects */
+        .dashboard-options ul li a:hover {
+            background-color: #0056b3;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Footer (Optional) */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard-options h2 {
+                font-size: 1.8rem;
+            }
+
+            .dashboard-options ul li a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Admin Dashboard</h1>
+            <nav class="navbar">
+            <ul>
+                <li><a href="homee.html">Home</a></li>
+                <!--<li><a href="regestrstion.html">Register</a></li>
+                <li><a href="govt.html">Dashboard</a></li>
+                <li><a href="hospital.html">Hospital Birth Data</a></li>
+                <li><a href="morgue.html">Morgue Death Data</a></li>-->
+                <li><a href="Contact Page.html">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+    <main>
+        <section class="dashboard-options">
+            <h2>Control Panel</h2>
+            <ul>
+                <li><a href="manage_enumerators.html">Manage Enumerators</a></li>
+                <li><a href="view_registrations.html">View Citizen Registrations</a></li>
+                <li><a href="system_settings.html">System Settings</a></li>
+                <li><a href="admin_login.html">Logout</a></li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

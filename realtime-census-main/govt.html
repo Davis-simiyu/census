@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Real-Time Population Census</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>Population Census Dashboard</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <h2>Demographic Data Overview</h2>
+
+            <!-- Total Population -->
+            <h3>Total Population</h3>
+            <table id="population_table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total Population</td>
+                        <td id="total_population">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td>Enumerators</td>
+                        <td id="enumerators">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td>Admin Users</td>
+                        <td id="admin_users">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Age Distribution -->
+            <h3>Age Distribution</h3>
+            <table id="age_distribution_table">
+                <thead>
+                    <tr>
+                        <th>Age Group</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody id="age_distribution">
+                    <tr>
+                        <td colspan="2">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Real-Time Population Census System</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function fetchData() {
+                $.ajax({
+                    url: 'get_population_data.php', // Ensure this path is correct
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log('Fetched data:', data);  // Log data for debugging
+
+                        if (data.error) {
+                            console.error("Error from server: ", data.error);
+                            $('#total_population').text("Error fetching data");
+                            $('#age_distribution').html("<tr><td colspan='2'>Error fetching data</td></tr>");
+                        } else {
+                            // Update total population
+                            $('#total_population').text(data.total_population);
+
+                            // Update enumerators and admin users
+                            $('#enumerators').text(data.enumerators);
+                            $('#admin_users').text(data.admin_users);
+
+                            // Update age distribution
+                            let ageDistHTML = '';
+                            for (const [group, count] of Object.entries(data.age_distribution)) {
+                                ageDistHTML += `<tr><td>${group}</td><td>${count}</td></tr>`;
+                            }
+                            $('#age_distribution').html(ageDistHTML);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error: ", error);
+                        $('#total_population').text("Error fetching data");
+                        $('#age_distribution').html("<tr><td colspan='2'>Error fetching data</td></tr>");
+                    }
+                });
+            }
+
+            // Fetch data initially and every 10 seconds
+            fetchData();
+            setInterval(fetchData, 10000);
+        });
+    </script>
+</body>
+</html>

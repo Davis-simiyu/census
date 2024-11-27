@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Birth Data - Real-Time Population Census</title>
+    <link rel="stylesheet" href="ddd.css">
+    <style type="text/css">
+        body{
+            background-image: url('https://content.unops.org/photos/News-and-Stories/Features/_image1800x900/Kenya_Maternal-Health_DFID_UNICEF-MNCH_87A1081_John-Rae_2017.jpg');
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hospital Birth Data Submission</h1>
+       <nav class="navbar">
+            <ul>
+                <li><a href="homee.html">Home</a></li>
+              <!--  <li><a href="regestrstion.html">Register</a></li>
+                <li><a href="govt.html">Dashboard</a></li>
+                <li><a href="hospital.html">Hospital Birth Data</a></li>
+                <li><a href="morgue.html">Morgue Death Data</a></li>-->
+                <li><a href="Contact Page.html">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="form-section">
+            <h2>Submit New Birth Record</h2>
+<form action="createhospital.php" method="post" enctype="multipart/form-data">
+                <label for="childName">Child’s Full Name</label>
+                <input type="text" id="childName" name="childName" required>
+
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="placeOfBirth">Place of Birth</label>
+                <input type="text" id="placeOfBirth" name="placeOfBirth" required>
+
+                <label for="parentName">Parent/Guardian Name</label>
+                <input type="text" id="parentName" name="parentName" required>
+
+                <label for="birthCertificate">Upload Birth Certificate</label>
+                <input type="file" id="birthCertificate" name="birthCertificate" accept=".jpg,.jpeg,.png,.pdf" required>
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" required>
+                <span id="locationError" class="error"></span>
+
+
+                <button type="submit">Submit Birth Record</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Real-Time Population Census System</p>
+    </footer>
+</body>
+</html>

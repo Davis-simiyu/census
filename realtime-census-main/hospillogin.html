@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Login</title>
+    <link rel="stylesheet" href="admin_styles.css">
+</head>
+<body>
+    <header>
+        <h1>Population Census System - Admin Login</h1>
+    </header>
+    <main class="login-section">
+        <form id="hospilLoginForm" action="hospital.html" method="post" onsubmit="return validateAdminLogin()">
+            <label for="Hospital_id">Hospital_ID:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Login</button>
+            <div id="loginError" class="error"></div>
+        </form>
+    </main>
+</body>
+<script>
+    function validateAdminLogin() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        /*if (username !== "admin" || password !== "Admin$ecure123") {
+            document.getElementById("loginError").textContent = "Invalid username or password.";
+            return false;*/
+        function validateAdminLogin() {
+    return true; // Temporarily bypass validation for testing
+}
+
+        }
+        
+        return true;
+    }
+</script>
+</html>

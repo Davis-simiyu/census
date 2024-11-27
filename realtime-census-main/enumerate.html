@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enumerator Login</title>
+    <link rel="stylesheet" href="enumerate.css">
+</head>
+<body>
+    <header>
+        <h1>Real-Time Population Census System</h1>
+    </header>
+    <main class="login-section">
+        <h2>Enumerator Login</h2>
+        <form id="loginForm" action="register.html" method="post" onsubmit="return validateLogin()">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+            <div id="loginError" class="error"></div>
+        </form>
+    </main>
+</body>
+<script>
+    function validateLogin() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        
+        // Basic validation (replace with actual authentication logic)
+       /* if (username !== "enumerator" || password !== "password123") {
+            document.getElementById("loginError").textContent = "Invalid username or password.";
+            return false;
+        }*/
+          function validateAdminLogin() {
+    return true; // Temporarily bypass validation for testing
+}
+        
+        // Redirect to registration page (or allow form submission)
+        return true;
+    }
+</script>
+</html>
